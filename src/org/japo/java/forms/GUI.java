@@ -299,8 +299,9 @@ public class GUI extends JFrame {
                 break;
                 
             case KeyEvent.VK_ENTER:
-                String resultado;
-                memoria2 = caja.getText();
+            String resultado;
+            memoria2 = caja.getText();
+            if(!signo.equals("")){
                 if(!memoria2.equals("")){
                     resultado = calculo(memoria1, memoria2, signo);             
                     String[] arrayResultado = resultado.split("\\.");
@@ -311,9 +312,16 @@ public class GUI extends JFrame {
                     }
                     memoria1 = "";
                     memoria2 = "";
-                    signo = "";                      
+                    signo = "";               
+                    caja.requestFocus();
+                }else {
+                    caja.setText("");
+                    caja.requestFocus();
                 }
+            }else{
+                caja.setText("");
                 caja.requestFocus();
+            }
                 break;
                 
             case 107 : //Suma
@@ -405,17 +413,26 @@ public class GUI extends JFrame {
         else if(e.getSource().equals(btnIgual)){
             String resultado;
             memoria2 = caja.getText();
-            if(!memoria2.equals("")){
-                resultado = calculo(memoria1, memoria2, signo);             
-                String[] arrayResultado = resultado.split("\\.");
-                if(Integer.parseInt(arrayResultado[1]) == 0){
-                caja.setText(arrayResultado[0]);
-                }else{
-                caja.setText(resultado);
+            if(!signo.equals("")){
+                if(!memoria2.equals("")){
+                    resultado = calculo(memoria1, memoria2, signo);             
+                    String[] arrayResultado = resultado.split("\\.");
+                    if(Integer.parseInt(arrayResultado[1]) == 0){
+                    caja.setText(arrayResultado[0]);
+                    }else{
+                    caja.setText(resultado);
+                    }
+                    memoria1 = "";
+                    memoria2 = "";
+                    signo = "";               
+                    caja.requestFocus();
+                }else {
+                    caja.setText("");
+                    caja.requestFocus();
                 }
-                memoria1 = "";
-                memoria2 = "";
-                signo = "";                      
+            }else{
+                caja.setText("");
+                caja.requestFocus();
             }
             
         }else if(e.getSource().equals(btnDivi)){
