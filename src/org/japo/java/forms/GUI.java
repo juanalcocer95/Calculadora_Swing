@@ -327,16 +327,24 @@ public class GUI extends JFrame {
         //Signos y operaciones
         else if(e.getSource().equals(btnPunto)){
             caja.setText(caja.getText()+".");
-        }else if(e.getSource().equals(btnIgual)){
+        }
+        // Resultado
+        else if(e.getSource().equals(btnIgual)){
             String resultado;
             memoria2 = caja.getText();
             if(!memoria2.equals("")){
-                resultado = calculo(memoria1, memoria2, signo);
+                resultado = calculo(memoria1, memoria2, signo);             
+                String[] arrayResultado = resultado.split("\\.");
+                if(Integer.parseInt(arrayResultado[1]) == 0){
+                caja.setText(arrayResultado[0]);
+                }else{
                 caja.setText(resultado);
+                }
                 memoria1 = "";
                 memoria2 = "";
                 signo = "";                      
             }
+            
         }else if(e.getSource().equals(btnDivi)){
             signo = "/";
             if(!caja.getText().equals("") && memoria1.equals("") ){

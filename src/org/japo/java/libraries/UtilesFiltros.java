@@ -78,7 +78,6 @@ public class UtilesFiltros{
             StringBuilder sb = new StringBuilder();
             sb.append(doc.getText(0, doc.getLength()));
             sb.delete(offset, offset + length);
-
             if(sb.toString().length() == 0) {
                 super.replace(fb, offset, length, "", null);
             } else {
