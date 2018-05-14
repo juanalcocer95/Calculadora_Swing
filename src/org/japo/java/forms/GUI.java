@@ -292,12 +292,12 @@ public class GUI extends JFrame {
         UtilesSwing.establecerFavicon(this, prp.getProperty(PRP_FAVICON_RESOURCE, DEF_FAVICON_RESOURCE));
     }
 
-    
     public void procesarTecla(KeyEvent e) {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_ESCAPE:
                 UtilesSwing.terminarPrograma(this);
                 break;
+                
             case KeyEvent.VK_ENTER:
                 String resultado;
                 memoria2 = caja.getText();
@@ -315,6 +315,62 @@ public class GUI extends JFrame {
                 }
                 caja.requestFocus();
                 break;
+                
+            case 107 : //Suma
+                    signo = "+";
+                if(!caja.getText().equals("") && memoria1.equals("")){
+                    memoria1 = caja.getText();
+                    caja.setText("");
+                    caja.requestFocus();  
+                }else if(!caja.getText().equals("") && !memoria1.equals("")){
+                    memoria2 = caja.getText();
+                    memoria1 = calculo(memoria1, memoria2, signo);
+                    caja.setText("");
+                    caja.requestFocus();
+                }    
+                break;
+                
+            case 109 : //Resta
+                    signo = "-";
+                if(!caja.getText().equals("") && memoria1.equals("")){
+                    memoria1 = caja.getText();
+                    caja.setText("");
+                    caja.requestFocus();  
+                }else if(!caja.getText().equals("") && !memoria1.equals("")){
+                    memoria2 = caja.getText();
+                    memoria1 = calculo(memoria1, memoria2, signo);
+                    caja.setText("");
+                    caja.requestFocus();
+                }    
+                break;
+                
+            case 106 : //Multiplicacion
+                    signo = "*";
+                if(!caja.getText().equals("") && memoria1.equals("")){
+                    memoria1 = caja.getText();
+                    caja.setText("");
+                    caja.requestFocus();  
+                }else if(!caja.getText().equals("") && !memoria1.equals("")){
+                    memoria2 = caja.getText();
+                    memoria1 = calculo(memoria1, memoria2, signo);
+                    caja.setText("");
+                    caja.requestFocus();
+                }    
+                break;    
+            
+            case 111 : //Division
+                    signo = "/";
+                if(!caja.getText().equals("") && memoria1.equals("")){
+                    memoria1 = caja.getText();
+                    caja.setText("");
+                    caja.requestFocus();  
+                }else if(!caja.getText().equals("") && !memoria1.equals("")){
+                    memoria2 = caja.getText();
+                    memoria1 = calculo(memoria1, memoria2, signo);
+                    caja.setText("");
+                    caja.requestFocus();
+                }    
+                break;    
         }
     }
     
