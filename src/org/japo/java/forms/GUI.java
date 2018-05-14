@@ -15,28 +15,18 @@
  */
 package org.japo.java.forms;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.net.URL;
 import java.util.Properties;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.PlainDocument;
-import org.japo.java.components.BackgroundPanel;
 import org.japo.java.events.AEM;
 import org.japo.java.events.KEM;
-import org.japo.java.events.MEM;
-import org.japo.java.events.MMEM;
 import org.japo.java.libraries.UtilesFiltros;
 import org.japo.java.libraries.UtilesSwing;
 
@@ -61,6 +51,11 @@ public class GUI extends JFrame {
 
     // Referencias
     private Properties prp;
+    
+    private String memoria1;
+    private String memoria2;
+    private String signo;
+    
     
     private JTextField caja;
     //botones
@@ -274,8 +269,6 @@ public class GUI extends JFrame {
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);            
 
-        //Eventos
-        
         }
     
     // Inicialización Anterior    
@@ -293,5 +286,79 @@ public class GUI extends JFrame {
         UtilesSwing.establecerFavicon(this, prp.getProperty(PRP_FAVICON_RESOURCE, DEF_FAVICON_RESOURCE));
     }
 
-
+    
+    public void procesarTecla(KeyEvent e) {
+        switch (e.getKeyCode()) {
+            case KeyEvent.VK_ESCAPE:
+                UtilesSwing.terminarPrograma(this);
+                break;
+            case KeyEvent.VK_ENTER:
+                if (e.getSource().equals(btnIgual)) {
+                    //procesarCredencial();
+                    caja.requestFocus();
+                }
+                break;
+        }
+    }
+    
+    public void procesarAccion(ActionEvent e){
+        if(e.getSource().equals(num1)){
+            caja.setText(caja.getText()+"1");
+        }else if(e.getSource().equals(num2)){
+            caja.setText(caja.getText()+"2");
+        }else if(e.getSource().equals(num3)){
+            caja.setText(caja.getText()+"3");
+        }else if(e.getSource().equals(num4)){
+            caja.setText(caja.getText()+"4");
+        }else if(e.getSource().equals(num5)){
+            caja.setText(caja.getText()+"5");
+        }else if(e.getSource().equals(num6)){
+            caja.setText(caja.getText()+"6");
+        }else if(e.getSource().equals(num7)){
+            caja.setText(caja.getText()+"7");
+        }else if(e.getSource().equals(num8)){
+            caja.setText(caja.getText()+"8");
+        }else if(e.getSource().equals(num9)){
+            caja.setText(caja.getText()+"9");
+        }else if(e.getSource().equals(num0)){
+            caja.setText(caja.getText()+"0");
+        }
+        
+        //Signos y operaciones
+        else if(e.getSource().equals(btnPunto)){
+            caja.setText(caja.getText()+".");
+        }else if(e.getSource().equals(btnIgual)){
+            
+        }else if(e.getSource().equals(btnDivi)){
+            if(!caja.getText().equals("")){
+                memoria1 = caja.getText();
+                signo = "/";
+                caja.setText("");
+                caja.requestFocus();  
+            }    
+        }else if(e.getSource().equals(btnMulti)){
+            if(!caja.getText().equals("")){
+                memoria1 = caja.getText();
+                signo = "*";
+                caja.setText("");
+                caja.requestFocus();   
+            }    
+        }else if(e.getSource().equals(btnSuma)){
+            if(!caja.getText().equals("")){
+                memoria1 = caja.getText();
+                signo = "+";
+                caja.setText("");
+                caja.requestFocus();  
+            }    
+        }else if(e.getSource().equals(btnResta)){
+            if(!caja.getText().equals("")){
+                memoria1 = caja.getText();
+                signo = "-";
+                caja.setText("");
+                caja.requestFocus();
+                
+            }
+        }
+    }
 }
+        
