@@ -328,14 +328,19 @@ public class GUI extends JFrame {
         else if(e.getSource().equals(btnPunto)){
             caja.setText(caja.getText()+".");
         }else if(e.getSource().equals(btnIgual)){
-            
+            String resultado;
+            memoria2 = caja.getText();
+            if(!memoria2.equals("")){
+                resultado = calculo(memoria1, memoria2, signo);
+                caja.setText(resultado);
+            }
         }else if(e.getSource().equals(btnDivi)){
             if(!caja.getText().equals("")){
                 memoria1 = caja.getText();
                 signo = "/";
                 caja.setText("");
                 caja.requestFocus();  
-            }    
+            }  
         }else if(e.getSource().equals(btnMulti)){
             if(!caja.getText().equals("")){
                 memoria1 = caja.getText();
@@ -359,6 +364,31 @@ public class GUI extends JFrame {
                 
             }
         }
+    }
+    
+    public static String calculo(String memoria1, String memoria2, String signo){
+        String respuesta;
+        double resultado = 0.0;
+        switch (signo) {
+            case "-":
+                resultado = Double.parseDouble(memoria1)-Double.parseDouble(memoria2);
+                break;
+            case "+":
+                resultado = Double.parseDouble(memoria1)+Double.parseDouble(memoria2);
+                break;
+            case "*":
+                resultado = Double.parseDouble(memoria1)*Double.parseDouble(memoria2);
+                break;
+            case "/":
+                if(Double.parseDouble(memoria2) != 0){
+                    resultado = Double.parseDouble(memoria1)/Double.parseDouble(memoria2);
+                }else{
+                    resultado = Double.parseDouble(memoria1);
+                }
+                break;    
+        }
+        respuesta = resultado + "";
+        return respuesta;
     }
 }
         
