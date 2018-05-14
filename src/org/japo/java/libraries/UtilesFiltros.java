@@ -65,8 +65,8 @@ public class UtilesFiltros{
 
             if (test(sb.toString())) {
                super.replace(fb, offset, length, text, attrs);
-            } else {
-               // warn the user and don't allow the insert
+            } else if (text.equals("")) {
+               super.remove(fb, offset, length);                       
             }
 
          }
@@ -86,7 +86,7 @@ public class UtilesFiltros{
                     super.remove(fb, offset, length);
                 } else {
                     // warn the user and don't allow the insert
-                  } 
+                  }
             }
          }
     }

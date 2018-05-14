@@ -52,9 +52,9 @@ public class GUI extends JFrame {
     // Referencias
     private Properties prp;
     
-    private String memoria1;
-    private String memoria2;
-    private String signo;
+    private String memoria1 = "";
+    private String memoria2 = "";
+    private String signo = "";
     
     
     private JTextField caja;
@@ -333,35 +333,57 @@ public class GUI extends JFrame {
             if(!memoria2.equals("")){
                 resultado = calculo(memoria1, memoria2, signo);
                 caja.setText(resultado);
+                memoria1 = "";
+                memoria2 = "";
+                signo = "";                      
             }
         }else if(e.getSource().equals(btnDivi)){
-            if(!caja.getText().equals("")){
+            signo = "/";
+            if(!caja.getText().equals("") && memoria1.equals("") ){
                 memoria1 = caja.getText();
-                signo = "/";
                 caja.setText("");
                 caja.requestFocus();  
-            }  
-        }else if(e.getSource().equals(btnMulti)){
-            if(!caja.getText().equals("")){
-                memoria1 = caja.getText();
-                signo = "*";
-                caja.setText("");
-                caja.requestFocus();   
-            }    
-        }else if(e.getSource().equals(btnSuma)){
-            if(!caja.getText().equals("")){
-                memoria1 = caja.getText();
-                signo = "+";
-                caja.setText("");
-                caja.requestFocus();  
-            }    
-        }else if(e.getSource().equals(btnResta)){
-            if(!caja.getText().equals("")){
-                memoria1 = caja.getText();
-                signo = "-";
+            }else if(!caja.getText().equals("") && !memoria1.equals("")){
+                memoria2 = caja.getText();
+                memoria1 = calculo(memoria1, memoria2, signo);
                 caja.setText("");
                 caja.requestFocus();
-                
+            }    
+        }else if(e.getSource().equals(btnMulti)){
+            signo = "*";
+            if(!caja.getText().equals("") && memoria1.equals("")){
+                memoria1 = caja.getText();
+                caja.setText("");
+                caja.requestFocus();   
+            }else if(!caja.getText().equals("") && !memoria1.equals("")){
+                memoria2 = caja.getText();
+                memoria1 = calculo(memoria1, memoria2, signo);
+                caja.setText("");
+                caja.requestFocus();
+            }    
+        }else if(e.getSource().equals(btnSuma)){
+            signo = "+";
+            if(!caja.getText().equals("") && memoria1.equals("")){
+                memoria1 = caja.getText();
+                caja.setText("");
+                caja.requestFocus();  
+            }else if(!caja.getText().equals("") && !memoria1.equals("")){
+                memoria2 = caja.getText();
+                memoria1 = calculo(memoria1, memoria2, signo);
+                caja.setText("");
+                caja.requestFocus();
+            }    
+        }else if(e.getSource().equals(btnResta) && memoria1.equals("")){
+            memoria1 = caja.getText();
+            signo = "-";
+            if(!caja.getText().equals("")){              
+                caja.setText("");
+                caja.requestFocus();    
+            }else if(!caja.getText().equals("") && !memoria1.equals("")){
+                memoria2 = caja.getText();
+                memoria1 = calculo(memoria1, memoria2, signo);
+                caja.setText("");
+                caja.requestFocus();
             }
         }
     }
