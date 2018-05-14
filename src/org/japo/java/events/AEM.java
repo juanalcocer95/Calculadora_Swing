@@ -35,6 +35,6 @@ public class AEM implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        gui.procesarAccion(e);
+        
     }
 }

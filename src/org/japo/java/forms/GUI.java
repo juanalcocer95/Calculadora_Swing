@@ -18,6 +18,7 @@ package org.japo.java.forms;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.util.Properties;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,6 +28,7 @@ import javax.swing.JTextField;
 import javax.swing.text.PlainDocument;
 import org.japo.java.events.AEM;
 import org.japo.java.events.KEM;
+import org.japo.java.events.MEM;
 import org.japo.java.libraries.UtilesFiltros;
 import org.japo.java.libraries.UtilesSwing;
 
@@ -111,7 +113,7 @@ public class GUI extends JFrame {
         num1.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num1.setLocation(25, 90);
         num1.setSize(70, 70);
-        num1.addActionListener(new AEM(this));
+        num1.addMouseListener(new MEM(this));
         num1.addKeyListener(new KEM(this));
         
         //Boton numero 2
@@ -119,7 +121,7 @@ public class GUI extends JFrame {
         num2.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num2.setLocation(120, 90);
         num2.setSize(70, 70);
-        num2.addActionListener(new AEM(this));
+        num2.addMouseListener(new MEM(this));
         num2.addKeyListener(new KEM(this));
         
         //Boton numero 3
@@ -127,7 +129,7 @@ public class GUI extends JFrame {
         num3.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num3.setLocation(210, 90);
         num3.setSize(70, 70);
-        num3.addActionListener(new AEM(this));
+        num3.addMouseListener(new MEM(this));
         num3.addKeyListener(new KEM(this));
         
         //Boton numero 4
@@ -135,7 +137,7 @@ public class GUI extends JFrame {
         num4.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num4.setLocation(25, 180);
         num4.setSize(70, 70);
-        num4.addActionListener(new AEM(this));
+        num4.addMouseListener(new MEM(this));
         num4.addKeyListener(new KEM(this));
         
         //Boton numero 5
@@ -143,7 +145,7 @@ public class GUI extends JFrame {
         num5.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num5.setLocation(120, 180);
         num5.setSize(70, 70);
-        num5.addActionListener(new AEM(this));
+        num5.addMouseListener(new MEM(this));
         num5.addKeyListener(new KEM(this));
         
         //Boton numero 6
@@ -151,7 +153,7 @@ public class GUI extends JFrame {
         num6.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num6.setLocation(210, 180);
         num6.setSize(70, 70);
-        num6.addActionListener(new AEM(this));
+        num6.addMouseListener(new MEM(this));
         num6.addKeyListener(new KEM(this));
         
         //Boton numero 7
@@ -159,7 +161,7 @@ public class GUI extends JFrame {
         num7.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num7.setLocation(25, 270);
         num7.setSize(70, 70);
-        num7.addActionListener(new AEM(this));
+        num7.addMouseListener(new MEM(this));
         num7.addKeyListener(new KEM(this));
         
         //Boton numero 8
@@ -167,7 +169,7 @@ public class GUI extends JFrame {
         num8.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num8.setLocation(120, 270);
         num8.setSize(70, 70);
-        num8.addActionListener(new AEM(this));
+        num8.addMouseListener(new MEM(this));
         num8.addKeyListener(new KEM(this));
         
         //Boton numero 9
@@ -175,7 +177,7 @@ public class GUI extends JFrame {
         num9.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num9.setLocation(210, 270);
         num9.setSize(70, 70);
-        num9.addActionListener(new AEM(this));
+        num9.addMouseListener(new MEM(this));
         num9.addKeyListener(new KEM(this));
         
         //Boton numero 0
@@ -183,7 +185,7 @@ public class GUI extends JFrame {
         num0.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         num0.setLocation(120, 360);
         num0.setSize(70, 70);
-        num0.addActionListener(new AEM(this));
+        num0.addMouseListener(new MEM(this));
         num0.addKeyListener(new KEM(this));
     
     //Botones Operaciones
@@ -193,7 +195,7 @@ public class GUI extends JFrame {
         btnDivi.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         btnDivi.setLocation(300, 90);
         btnDivi.setSize(70, 70);
-        btnDivi.addActionListener(new AEM(this));
+        btnDivi.addMouseListener(new MEM(this));
         btnDivi.addKeyListener(new KEM(this));
         
         //Boton Multiplicacion
@@ -201,7 +203,7 @@ public class GUI extends JFrame {
         btnMulti.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         btnMulti.setLocation(300, 180);
         btnMulti.setSize(70, 70);
-        btnMulti.addActionListener(new AEM(this));
+        btnMulti.addMouseListener(new MEM(this));
         btnMulti.addKeyListener(new KEM(this));
         
         //Boton Resta
@@ -209,7 +211,7 @@ public class GUI extends JFrame {
         btnResta.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         btnResta.setLocation(300, 270);
         btnResta.setSize(70, 70);
-        btnResta.addActionListener(new AEM(this));
+        btnResta.addMouseListener(new MEM(this));
         btnResta.addKeyListener(new KEM(this));
         
         //Boton Suma
@@ -217,7 +219,7 @@ public class GUI extends JFrame {
         btnSuma.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         btnSuma.setLocation(300, 360);
         btnSuma.setSize(70, 70);
-        btnSuma.addActionListener(new AEM(this));
+        btnSuma.addMouseListener(new MEM(this));
         btnSuma.addKeyListener(new KEM(this));
                      
         //Boton Punto
@@ -225,7 +227,7 @@ public class GUI extends JFrame {
         btnPunto.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         btnPunto.setLocation(25, 360);
         btnPunto.setSize(70, 70);
-        btnPunto.addActionListener(new AEM(this));
+        btnPunto.addMouseListener(new MEM(this));
         btnPunto.addKeyListener(new KEM(this));
         
         //Boton Igual
@@ -233,7 +235,7 @@ public class GUI extends JFrame {
         btnIgual.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
         btnIgual.setLocation(210, 360);
         btnIgual.setSize(70, 70);
-        btnIgual.addActionListener(new AEM(this));
+        btnIgual.addMouseListener(new MEM(this));
         btnIgual.addKeyListener(new KEM(this));
         
         // Panel Principal
@@ -267,6 +269,10 @@ public class GUI extends JFrame {
         pnlPpal.add(btnPunto);
         pnlPpal.add(btnIgual);
         
+        //Eventos 
+        
+        caja.addKeyListener(new KEM(this));
+        
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);            
 
         }
@@ -293,15 +299,26 @@ public class GUI extends JFrame {
                 UtilesSwing.terminarPrograma(this);
                 break;
             case KeyEvent.VK_ENTER:
-                if (e.getSource().equals(btnIgual)) {
-                    //procesarCredencial();
-                    caja.requestFocus();
+                String resultado;
+                memoria2 = caja.getText();
+                if(!memoria2.equals("")){
+                    resultado = calculo(memoria1, memoria2, signo);             
+                    String[] arrayResultado = resultado.split("\\.");
+                    if(Integer.parseInt(arrayResultado[1]) == 0){
+                    caja.setText(arrayResultado[0]);
+                    }else{
+                    caja.setText(resultado);
+                    }
+                    memoria1 = "";
+                    memoria2 = "";
+                    signo = "";                      
                 }
+                caja.requestFocus();
                 break;
         }
     }
     
-    public void procesarAccion(ActionEvent e){
+    public void procesarAccion(MouseEvent e){
         if(e.getSource().equals(num1)){
             caja.setText(caja.getText()+"1");
         }else if(e.getSource().equals(num2)){
@@ -356,7 +373,7 @@ public class GUI extends JFrame {
                 memoria1 = calculo(memoria1, memoria2, signo);
                 caja.setText("");
                 caja.requestFocus();
-            }    
+            }
         }else if(e.getSource().equals(btnMulti)){
             signo = "*";
             if(!caja.getText().equals("") && memoria1.equals("")){
@@ -420,5 +437,6 @@ public class GUI extends JFrame {
         respuesta = resultado + "";
         return respuesta;
     }
+
 }
         

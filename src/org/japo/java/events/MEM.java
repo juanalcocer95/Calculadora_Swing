@@ -36,8 +36,7 @@ public class MEM extends MouseAdapter {
     
     @Override
     public void mousePressed(MouseEvent e){
-        
-        
+        gui.procesarAccion(e);
     }
     
 }
