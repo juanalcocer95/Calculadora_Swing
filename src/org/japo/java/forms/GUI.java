@@ -327,77 +327,120 @@ public class GUI extends JFrame {
             if(!signo.equals("")){
                 if(!memoria2.equals("")){
                     resultado = calculo(memoria1, memoria2, signo);
-                    String[] arrayResultado = resultado.split("\\.");
-                    if(Integer.parseInt(arrayResultado[1]) == 0){
-                    caja.setText(arrayResultado[0]);
+                    
+                    if(resultado.equals("Error division")){
+                        lblMem.setText("No se puede dividir por 0");
+                        caja.setText("");
                     }else{
-                    caja.setText(resultado);
-                    }
+                        lblMem.setText("");
+                        caja.setText(resultadoEnteroODecimal(resultado));
+                    }                    
+                    lblSigno.setText("");
                     memoria1 = "";
                     memoria2 = "";
                     signo = "";               
                     caja.requestFocus();
                 }else {
+                    lblMem.setText("");
+                    lblSigno.setText("");
                     caja.setText("");
                     caja.requestFocus();
                 }
             }else{
+                lblMem.setText("");
+                lblSigno.setText("");
                 caja.setText("");
                 caja.requestFocus();
             }
                 break;
                 
             case 107 : //Suma
-                    signo = "+";
+                signo = "+";
                 if(!caja.getText().equals("") && memoria1.equals("")){
                     memoria1 = caja.getText();
+
+                    lblMem.setText(resultadoEnteroODecimal(memoria1));
+                    lblSigno.setText(signo);
+
                     caja.setText("");
                     caja.requestFocus();  
                 }else if(!caja.getText().equals("") && !memoria1.equals("")){
                     memoria2 = caja.getText();
                     memoria1 = calculo(memoria1, memoria2, signo);
+
+                    lblMem.setText(resultadoEnteroODecimal(memoria1));
+                    lblSigno.setText(signo);
+
                     caja.setText("");
                     caja.requestFocus();
-                }    
+                }     
                 break;
                 
             case 109 : //Resta
                     signo = "-";
-                if(!caja.getText().equals("") && memoria1.equals("")){
-                    memoria1 = caja.getText();
-                    caja.setText("");
-                    caja.requestFocus();  
-                }else if(!caja.getText().equals("") && !memoria1.equals("")){
-                    memoria2 = caja.getText();
-                    memoria1 = calculo(memoria1, memoria2, signo);
-                    caja.setText("");
-                    caja.requestFocus();
+                    if(!caja.getText().equals("") && memoria1.equals("")){
+                        memoria1 = caja.getText();
+
+                        lblMem.setText(resultadoEnteroODecimal(memoria1));
+                        lblSigno.setText(signo);
+
+                        caja.setText("");
+                        caja.requestFocus();    
+                    }else if(!caja.getText().equals("") && !memoria1.equals("")){
+                        memoria2 = caja.getText();
+                        memoria1 = calculo(memoria1, memoria2, signo);
+
+                        lblMem.setText(resultadoEnteroODecimal(memoria1));
+                        lblSigno.setText(signo);
+
+                        caja.setText("");
+                        caja.requestFocus();
+                    }else if(caja.getText().equals("")) {
+                        memoria1 = "0";
+                        lblMem.setText(resultadoEnteroODecimal(memoria1));
+                        lblSigno.setText(signo);
                 }    
                 break;
                 
             case 106 : //Multiplicacion
-                    signo = "*";
+                signo = "*";
                 if(!caja.getText().equals("") && memoria1.equals("")){
                     memoria1 = caja.getText();
+
+                    lblMem.setText(resultadoEnteroODecimal(memoria1));
+                    lblSigno.setText(signo);
+
                     caja.setText("");
-                    caja.requestFocus();  
+                    caja.requestFocus();   
                 }else if(!caja.getText().equals("") && !memoria1.equals("")){
                     memoria2 = caja.getText();
                     memoria1 = calculo(memoria1, memoria2, signo);
+
+                    lblMem.setText(resultadoEnteroODecimal(memoria1));
+                    lblSigno.setText(signo);
+
                     caja.setText("");
                     caja.requestFocus();
-                }    
+                }      
                 break;    
             
             case 111 : //Division
-                    signo = "/";
-                if(!caja.getText().equals("") && memoria1.equals("")){
+                signo = "/";
+                if(!caja.getText().equals("") && memoria1.equals("") ){
                     memoria1 = caja.getText();
+
+                    lblMem.setText(resultadoEnteroODecimal(memoria1));
+                    lblSigno.setText(signo);
+
                     caja.setText("");
                     caja.requestFocus();  
                 }else if(!caja.getText().equals("") && !memoria1.equals("")){
                     memoria2 = caja.getText();
                     memoria1 = calculo(memoria1, memoria2, signo);
+
+                    lblMem.setText(resultadoEnteroODecimal(memoria1));
+                    lblSigno.setText(signo);
+
                     caja.setText("");
                     caja.requestFocus();
                 }    
