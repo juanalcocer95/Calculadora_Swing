@@ -15,6 +15,7 @@
  */
 package org.japo.java.forms;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
@@ -60,6 +61,9 @@ public class GUI extends JFrame {
     
     
     private JTextField caja;
+    private JLabel lblMem;
+    private JLabel lblSigno;
+    
     //botones
     private JButton num1;
     private JButton num2;
@@ -99,19 +103,35 @@ public class GUI extends JFrame {
                         PRP_FONT_RESOURCE, DEF_FONT_RESOURCE)).
                             deriveFont(Font.BOLD + Font.ITALIC, 30f));
         caja.setSize(345, 50);
-        caja.setLocation(25, 20);
-        caja.setHorizontalAlignment(JLabel.CENTER);
+        caja.setLocation(25, 100);
+        caja.setHorizontalAlignment(JLabel.RIGHT);
         
         //Filtro escritura de caracteres no numericos
         PlainDocument doc = (PlainDocument) caja.getDocument();
         doc.setDocumentFilter(new UtilesFiltros.DoubleFiltro());
      
+        // memoria
+        lblMem = new JLabel("");
+        lblMem.setFont(new Font("Montserrat-Regular", Font.PLAIN, 20));
+        lblMem.setOpaque(true);
+        lblMem.setHorizontalAlignment(JLabel.RIGHT);
+        lblMem.setSize(345, 40);
+        lblMem.setLocation(25, 15);
+        
+        // Signo
+        lblSigno = new JLabel("");
+        lblSigno.setFont(new Font("Montserrat-Regular", Font.BOLD, 20));
+        lblSigno.setOpaque(true);
+        lblSigno.setHorizontalAlignment(JLabel.RIGHT);
+        lblSigno.setSize(345, 40);
+        lblSigno.setLocation(25, 50);
+        
     //Botones Numeros
     
         //Boton numero 1
         num1 = new JButton("1");
         num1.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num1.setLocation(25, 90);
+        num1.setLocation(25, 170);
         num1.setSize(70, 70);
         num1.addMouseListener(new MEM(this));
         num1.addKeyListener(new KEM(this));
@@ -119,7 +139,7 @@ public class GUI extends JFrame {
         //Boton numero 2
         num2 = new JButton("2");
         num2.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num2.setLocation(120, 90);
+        num2.setLocation(120, 170);
         num2.setSize(70, 70);
         num2.addMouseListener(new MEM(this));
         num2.addKeyListener(new KEM(this));
@@ -127,7 +147,7 @@ public class GUI extends JFrame {
         //Boton numero 3
         num3 = new JButton("3");
         num3.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num3.setLocation(210, 90);
+        num3.setLocation(210, 170);
         num3.setSize(70, 70);
         num3.addMouseListener(new MEM(this));
         num3.addKeyListener(new KEM(this));
@@ -135,7 +155,7 @@ public class GUI extends JFrame {
         //Boton numero 4
         num4 = new JButton("4");
         num4.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num4.setLocation(25, 180);
+        num4.setLocation(25, 260);
         num4.setSize(70, 70);
         num4.addMouseListener(new MEM(this));
         num4.addKeyListener(new KEM(this));
@@ -143,7 +163,7 @@ public class GUI extends JFrame {
         //Boton numero 5
         num5 = new JButton("5");
         num5.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num5.setLocation(120, 180);
+        num5.setLocation(120, 260);
         num5.setSize(70, 70);
         num5.addMouseListener(new MEM(this));
         num5.addKeyListener(new KEM(this));
@@ -151,7 +171,7 @@ public class GUI extends JFrame {
         //Boton numero 6
         num6 = new JButton("6");
         num6.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num6.setLocation(210, 180);
+        num6.setLocation(210, 260);
         num6.setSize(70, 70);
         num6.addMouseListener(new MEM(this));
         num6.addKeyListener(new KEM(this));
@@ -159,7 +179,7 @@ public class GUI extends JFrame {
         //Boton numero 7
         num7 = new JButton("7");
         num7.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num7.setLocation(25, 270);
+        num7.setLocation(25, 350);
         num7.setSize(70, 70);
         num7.addMouseListener(new MEM(this));
         num7.addKeyListener(new KEM(this));
@@ -167,7 +187,7 @@ public class GUI extends JFrame {
         //Boton numero 8
         num8 = new JButton("8");
         num8.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num8.setLocation(120, 270);
+        num8.setLocation(120, 350);
         num8.setSize(70, 70);
         num8.addMouseListener(new MEM(this));
         num8.addKeyListener(new KEM(this));
@@ -175,7 +195,7 @@ public class GUI extends JFrame {
         //Boton numero 9
         num9 = new JButton("9");
         num9.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num9.setLocation(210, 270);
+        num9.setLocation(210, 350);
         num9.setSize(70, 70);
         num9.addMouseListener(new MEM(this));
         num9.addKeyListener(new KEM(this));
@@ -183,7 +203,7 @@ public class GUI extends JFrame {
         //Boton numero 0
         num0 = new JButton("0");
         num0.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        num0.setLocation(120, 360);
+        num0.setLocation(120, 440);
         num0.setSize(70, 70);
         num0.addMouseListener(new MEM(this));
         num0.addKeyListener(new KEM(this));
@@ -193,7 +213,7 @@ public class GUI extends JFrame {
         //Boton division
         btnDivi = new JButton("÷");
         btnDivi.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        btnDivi.setLocation(300, 90);
+        btnDivi.setLocation(300, 170);
         btnDivi.setSize(70, 70);
         btnDivi.addMouseListener(new MEM(this));
         btnDivi.addKeyListener(new KEM(this));
@@ -201,7 +221,7 @@ public class GUI extends JFrame {
         //Boton Multiplicacion
         btnMulti = new JButton("x");
         btnMulti.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        btnMulti.setLocation(300, 180);
+        btnMulti.setLocation(300, 260);
         btnMulti.setSize(70, 70);
         btnMulti.addMouseListener(new MEM(this));
         btnMulti.addKeyListener(new KEM(this));
@@ -209,7 +229,7 @@ public class GUI extends JFrame {
         //Boton Resta
         btnResta = new JButton("-");
         btnResta.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        btnResta.setLocation(300, 270);
+        btnResta.setLocation(300, 350);
         btnResta.setSize(70, 70);
         btnResta.addMouseListener(new MEM(this));
         btnResta.addKeyListener(new KEM(this));
@@ -217,7 +237,7 @@ public class GUI extends JFrame {
         //Boton Suma
         btnSuma = new JButton("+");
         btnSuma.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        btnSuma.setLocation(300, 360);
+        btnSuma.setLocation(300, 440);
         btnSuma.setSize(70, 70);
         btnSuma.addMouseListener(new MEM(this));
         btnSuma.addKeyListener(new KEM(this));
@@ -225,7 +245,7 @@ public class GUI extends JFrame {
         //Boton Punto
         btnPunto = new JButton(".");
         btnPunto.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        btnPunto.setLocation(25, 360);
+        btnPunto.setLocation(25, 440);
         btnPunto.setSize(70, 70);
         btnPunto.addMouseListener(new MEM(this));
         btnPunto.addKeyListener(new KEM(this));
@@ -233,7 +253,7 @@ public class GUI extends JFrame {
         //Boton Igual
         btnIgual = new JButton("=");
         btnIgual.setFont(new Font("Montserrat-Regular", Font.BOLD, 30));
-        btnIgual.setLocation(210, 360);
+        btnIgual.setLocation(210, 440);
         btnIgual.setSize(70, 70);
         btnIgual.addMouseListener(new MEM(this));
         btnIgual.addKeyListener(new KEM(this));
@@ -246,11 +266,14 @@ public class GUI extends JFrame {
         pnlPpal.setLayout(null);
         setTitle("Calculadora");
         setResizable(false);
-        setSize(400, 500);
+        setSize(400, 600);
         setUndecorated(false);
         setLocationRelativeTo(null);
         
         pnlPpal.add(caja);
+        pnlPpal.add(lblMem);
+        pnlPpal.add(lblSigno);
+        
         pnlPpal.add(num1);
         pnlPpal.add(num2);
         pnlPpal.add(num3);
@@ -418,19 +441,27 @@ public class GUI extends JFrame {
                     resultado = calculo(memoria1, memoria2, signo);             
                     String[] arrayResultado = resultado.split("\\.");
                     if(Integer.parseInt(arrayResultado[1]) == 0){
-                    caja.setText(arrayResultado[0]);
+                        lblMem.setText("");
+                        lblSigno.setText("");
+                        caja.setText(arrayResultado[0]);
                     }else{
-                    caja.setText(resultado);
+                        lblMem.setText("");
+                        lblSigno.setText("");
+                        caja.setText(resultado);
                     }
                     memoria1 = "";
                     memoria2 = "";
                     signo = "";               
                     caja.requestFocus();
                 }else {
+                    lblMem.setText("");
+                    lblSigno.setText("");
                     caja.setText("");
                     caja.requestFocus();
                 }
             }else{
+                lblMem.setText("");
+                lblSigno.setText("");
                 caja.setText("");
                 caja.requestFocus();
             }
@@ -439,11 +470,19 @@ public class GUI extends JFrame {
             signo = "/";
             if(!caja.getText().equals("") && memoria1.equals("") ){
                 memoria1 = caja.getText();
+                
+                lblMem.setText(memoria1);
+                lblSigno.setText(signo);
+                
                 caja.setText("");
                 caja.requestFocus();  
             }else if(!caja.getText().equals("") && !memoria1.equals("")){
                 memoria2 = caja.getText();
                 memoria1 = calculo(memoria1, memoria2, signo);
+                
+                lblMem.setText(memoria1);
+                lblSigno.setText(signo);
+                
                 caja.setText("");
                 caja.requestFocus();
             }
@@ -451,11 +490,19 @@ public class GUI extends JFrame {
             signo = "*";
             if(!caja.getText().equals("") && memoria1.equals("")){
                 memoria1 = caja.getText();
+                
+                lblMem.setText(memoria1);
+                lblSigno.setText(signo);
+                
                 caja.setText("");
                 caja.requestFocus();   
             }else if(!caja.getText().equals("") && !memoria1.equals("")){
                 memoria2 = caja.getText();
                 memoria1 = calculo(memoria1, memoria2, signo);
+                                
+                lblMem.setText(memoria1);
+                lblSigno.setText(signo);
+                
                 caja.setText("");
                 caja.requestFocus();
             }    
@@ -463,26 +510,46 @@ public class GUI extends JFrame {
             signo = "+";
             if(!caja.getText().equals("") && memoria1.equals("")){
                 memoria1 = caja.getText();
+                
+                lblMem.setText(memoria1);
+                lblSigno.setText(signo);
+                
                 caja.setText("");
                 caja.requestFocus();  
             }else if(!caja.getText().equals("") && !memoria1.equals("")){
                 memoria2 = caja.getText();
                 memoria1 = calculo(memoria1, memoria2, signo);
+                                
+                lblMem.setText(memoria1);
+                lblSigno.setText(signo);
+                
                 caja.setText("");
                 caja.requestFocus();
             }    
-        }else if(e.getSource().equals(btnResta) && memoria1.equals("")){
-            memoria1 = caja.getText();
+        }else if(e.getSource().equals(btnResta)){
             signo = "-";
-            if(!caja.getText().equals("")){              
+            if(!caja.getText().equals("") && memoria1.equals("")){
+                memoria1 = caja.getText();
+                
+                lblMem.setText(memoria1);
+                lblSigno.setText(signo);
+                
                 caja.setText("");
                 caja.requestFocus();    
             }else if(!caja.getText().equals("") && !memoria1.equals("")){
                 memoria2 = caja.getText();
                 memoria1 = calculo(memoria1, memoria2, signo);
+                                
+                lblMem.setText(memoria1);
+                lblSigno.setText(signo);
+                
                 caja.setText("");
                 caja.requestFocus();
-            }
+            }else if(caja.getText().equals("")) {
+                memoria1 = "0";
+                lblMem.setText(memoria1);
+                lblSigno.setText(signo);
+        }
         }
     }
     
@@ -503,13 +570,13 @@ public class GUI extends JFrame {
                 if(Double.parseDouble(memoria2) != 0){
                     resultado = Double.parseDouble(memoria1)/Double.parseDouble(memoria2);
                 }else{
-                    resultado = Double.parseDouble(memoria1);
+                    return "No se puede dividir por 0"; 
                 }
                 break;    
         }
         respuesta = resultado + "";
         return respuesta;
     }
-
+    
 }
         
