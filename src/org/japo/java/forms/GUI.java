@@ -438,17 +438,16 @@ public class GUI extends JFrame {
             memoria2 = caja.getText();
             if(!signo.equals("")){
                 if(!memoria2.equals("")){
-                    resultado = calculo(memoria1, memoria2, signo);             
-                    String[] arrayResultado = resultado.split("\\.");
-                    if(Integer.parseInt(arrayResultado[1]) == 0){
-                        lblMem.setText("");
-                        lblSigno.setText("");
-                        caja.setText(arrayResultado[0]);
+                    resultado = calculo(memoria1, memoria2, signo);
+                    
+                    if(resultado.equals("Error division")){
+                        lblMem.setText("No se puede dividir por 0");
+                        caja.setText("");
                     }else{
                         lblMem.setText("");
-                        lblSigno.setText("");
-                        caja.setText(resultado);
-                    }
+                        caja.setText(resultadoEnteroODecimal(resultado));
+                    }                    
+                    lblSigno.setText("");
                     memoria1 = "";
                     memoria2 = "";
                     signo = "";               
@@ -569,7 +568,7 @@ public class GUI extends JFrame {
                 if(Double.parseDouble(memoria2) != 0){
                     resultado = Double.parseDouble(memoria1)/Double.parseDouble(memoria2);
                 }else{
-                    return "No se puede dividir por 0"; 
+                    return "Error division"; 
                 }
                 break;    
         }
@@ -583,7 +582,7 @@ public class GUI extends JFrame {
                     if(Integer.parseInt(arrayResultado[1]) == 0){
                         resultado = arrayResultado[0];
                     }
-        } catch (Exception e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             
         }
         
