@@ -20,6 +20,8 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Properties;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -609,7 +611,10 @@ public class GUI extends JFrame {
                 break;
             case "/":
                 if(Double.parseDouble(memoria2) != 0){
-                    resultado = Double.parseDouble(memoria1)/Double.parseDouble(memoria2);
+                    
+                    resultado = BigDecimal.valueOf(( //Redondea al alza el octavo decimal cuando sale periodico
+                            Double.parseDouble(memoria1) / Double.parseDouble(memoria2)))
+                            .setScale(8, RoundingMode.CEILING).doubleValue();
                 }else{
                     return "Error division"; 
                 }
