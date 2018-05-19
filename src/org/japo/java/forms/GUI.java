@@ -15,9 +15,7 @@
  */
 package org.japo.java.forms;
 
-import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.math.BigDecimal;
@@ -29,7 +27,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.PlainDocument;
-import org.japo.java.events.AEM;
 import org.japo.java.events.KEM;
 import org.japo.java.events.MEM;
 import org.japo.java.libraries.UtilesFiltros;
@@ -446,7 +443,7 @@ public class GUI extends JFrame {
                     caja.setText("");
                     caja.requestFocus();
                 }    
-                break;    
+                break;
         }
     }
     
@@ -475,7 +472,13 @@ public class GUI extends JFrame {
         
         //Signos y operaciones
         else if(e.getSource().equals(btnPunto)){
+            memoria1 = caja.getText();
+            if(!memoria1.equals("")){ 
             caja.setText(caja.getText()+".");
+            } else{
+                caja.setText("0.");
+            }
+            memoria1 = "";
         }
         // Resultado
         else if(e.getSource().equals(btnIgual)){
