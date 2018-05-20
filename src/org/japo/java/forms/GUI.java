@@ -315,6 +315,9 @@ public class GUI extends JFrame {
     }
 
     public void procesarTecla(KeyEvent e) {
+        if(caja.getText().equals("") && e.getKeyChar() == '.'){
+            caja.setText("0.");
+        }
         switch (e.getKeyCode()) {
             case KeyEvent.VK_ESCAPE:
                 UtilesSwing.terminarPrograma(this);
