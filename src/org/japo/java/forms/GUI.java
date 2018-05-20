@@ -333,9 +333,11 @@ public class GUI extends JFrame {
                     if(resultado.equals("Error division")){
                         lblMem.setText("No se puede dividir por 0");
                         caja.setText("");
+                        caja.requestFocus();
                     }else{
                         lblMem.setText("");
                         caja.setText(resultadoEnteroODecimal(resultado));
+                        caja.requestFocus();
                     }                    
                     lblSigno.setText("");
                     memoria1 = "";
@@ -401,6 +403,7 @@ public class GUI extends JFrame {
                         memoria1 = "0";
                         lblMem.setText(resultadoEnteroODecimal(memoria1));
                         lblSigno.setText(signo);
+                        caja.requestFocus();
                 }    
                 break;
                 
@@ -453,32 +456,44 @@ public class GUI extends JFrame {
     public void procesarAccion(MouseEvent e){
         if(e.getSource().equals(num1)){
             caja.setText(caja.getText()+"1");
+            caja.requestFocus();
         }else if(e.getSource().equals(num2)){
             caja.setText(caja.getText()+"2");
+            caja.requestFocus();
         }else if(e.getSource().equals(num3)){
             caja.setText(caja.getText()+"3");
+            caja.requestFocus();
         }else if(e.getSource().equals(num4)){
             caja.setText(caja.getText()+"4");
+            caja.requestFocus();
         }else if(e.getSource().equals(num5)){
             caja.setText(caja.getText()+"5");
+            caja.requestFocus();
         }else if(e.getSource().equals(num6)){
             caja.setText(caja.getText()+"6");
+            caja.requestFocus();
         }else if(e.getSource().equals(num7)){
             caja.setText(caja.getText()+"7");
+            caja.requestFocus();
         }else if(e.getSource().equals(num8)){
             caja.setText(caja.getText()+"8");
+            caja.requestFocus();
         }else if(e.getSource().equals(num9)){
             caja.setText(caja.getText()+"9");
+            caja.requestFocus();
         }else if(e.getSource().equals(num0)){
             caja.setText(caja.getText()+"0");
+            caja.requestFocus();
         }
         
         //Signos y operaciones
         else if(e.getSource().equals(btnPunto)){
             if(!caja.getText().equals("")){ 
-            caja.setText(caja.getText() + ".");
+                caja.setText(caja.getText() + ".");
+                caja.requestFocus();
             } else{
                 caja.setText("0.");
+                caja.requestFocus();
             }
         }
         
@@ -493,9 +508,11 @@ public class GUI extends JFrame {
                     if(resultado.equals("Error division")){
                         lblMem.setText("No se puede dividir por 0");
                         caja.setText("");
+                        caja.requestFocus();
                     }else{
                         lblMem.setText("");
                         caja.setText(resultadoEnteroODecimal(resultado));
+                        caja.requestFocus();
                     }                    
                     lblSigno.setText("");
                     memoria1 = "";
@@ -597,6 +614,7 @@ public class GUI extends JFrame {
                 memoria1 = "0";
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
+                caja.requestFocus();
             }
         }
     }
