@@ -315,6 +315,12 @@ public class GUI extends JFrame {
     }
 
     public void procesarTecla(KeyEvent e) {
+        if (caja.getText().equals("0")){
+            caja.setText("");
+        }
+        if(caja.getText().equals("") && e.getKeyChar() == '.'){
+            caja.setText("0.");
+        }
         switch (e.getKeyCode()) {
             case KeyEvent.VK_ESCAPE:
                 UtilesSwing.terminarPrograma(this);
@@ -329,7 +335,7 @@ public class GUI extends JFrame {
                     
                     if(resultado.equals("Error division")){
                         lblMem.setText("No se puede dividir por 0");
-                        caja.setText("");
+                        caja.setText("0");
                     }else{
                         lblMem.setText("");
                         caja.setText(resultadoEnteroODecimal(resultado));
@@ -342,13 +348,13 @@ public class GUI extends JFrame {
                 }else {
                     lblMem.setText("");
                     lblSigno.setText("");
-                    caja.setText("");
+                    caja.setText("0");
                     caja.requestFocus();
                 }
             }else{
                 lblMem.setText("");
                 lblSigno.setText("");
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();
             }
                 break;
@@ -361,7 +367,7 @@ public class GUI extends JFrame {
                     lblMem.setText(resultadoEnteroODecimal(memoria1));
                     lblSigno.setText(signo);
 
-                    caja.setText("");
+                    caja.setText("0");
                     caja.requestFocus();  
                 }else if(!caja.getText().equals("") && !memoria1.equals("")){
                     memoria2 = caja.getText();
@@ -370,7 +376,7 @@ public class GUI extends JFrame {
                     lblMem.setText(resultadoEnteroODecimal(memoria1));
                     lblSigno.setText(signo);
 
-                    caja.setText("");
+                    caja.setText("0");
                     caja.requestFocus();
                 }     
                 break;
@@ -383,7 +389,7 @@ public class GUI extends JFrame {
                         lblMem.setText(resultadoEnteroODecimal(memoria1));
                         lblSigno.setText(signo);
 
-                        caja.setText("");
+                        caja.setText("0");
                         caja.requestFocus();    
                     }else if(!caja.getText().equals("") && !memoria1.equals("")){
                         memoria2 = caja.getText();
@@ -392,7 +398,7 @@ public class GUI extends JFrame {
                         lblMem.setText(resultadoEnteroODecimal(memoria1));
                         lblSigno.setText(signo);
 
-                        caja.setText("");
+                        caja.setText("0");
                         caja.requestFocus();
                     }else if(caja.getText().equals("")) {
                         memoria1 = "0";
@@ -409,7 +415,7 @@ public class GUI extends JFrame {
                     lblMem.setText(resultadoEnteroODecimal(memoria1));
                     lblSigno.setText(signo);
 
-                    caja.setText("");
+                    caja.setText("0");
                     caja.requestFocus();   
                 }else if(!caja.getText().equals("") && !memoria1.equals("")){
                     memoria2 = caja.getText();
@@ -418,7 +424,7 @@ public class GUI extends JFrame {
                     lblMem.setText(resultadoEnteroODecimal(memoria1));
                     lblSigno.setText(signo);
 
-                    caja.setText("");
+                    caja.setText("0");
                     caja.requestFocus();
                 }      
                 break;    
@@ -431,7 +437,7 @@ public class GUI extends JFrame {
                     lblMem.setText(resultadoEnteroODecimal(memoria1));
                     lblSigno.setText(signo);
 
-                    caja.setText("");
+                    caja.setText("0");
                     caja.requestFocus();  
                 }else if(!caja.getText().equals("") && !memoria1.equals("")){
                     memoria2 = caja.getText();
@@ -440,7 +446,7 @@ public class GUI extends JFrame {
                     lblMem.setText(resultadoEnteroODecimal(memoria1));
                     lblSigno.setText(signo);
 
-                    caja.setText("");
+                    caja.setText("0");
                     caja.requestFocus();
                 }    
                 break;
@@ -448,6 +454,9 @@ public class GUI extends JFrame {
     }
     
     public void procesarAccion(MouseEvent e){
+        if (caja.getText().equals("0")){
+            caja.setText("");
+        }
         if(e.getSource().equals(num1)){
             caja.setText(caja.getText()+"1");
         }else if(e.getSource().equals(num2)){
@@ -490,7 +499,7 @@ public class GUI extends JFrame {
                     
                     if(resultado.equals("Error division")){
                         lblMem.setText("No se puede dividir por 0");
-                        caja.setText("");
+                        caja.setText("0");
                     }else{
                         lblMem.setText("");
                         caja.setText(resultadoEnteroODecimal(resultado));
@@ -503,13 +512,13 @@ public class GUI extends JFrame {
                 }else {
                     lblMem.setText("");
                     lblSigno.setText("");
-                    caja.setText("");
+                    caja.setText("0");
                     caja.requestFocus();
                 }
             }else{
                 lblMem.setText("");
                 lblSigno.setText("");
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();
             } 
         }else if(e.getSource().equals(btnDivi)){
@@ -520,7 +529,7 @@ public class GUI extends JFrame {
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
                 
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();  
             }else if(!caja.getText().equals("") && !memoria1.equals("")){
                 memoria2 = caja.getText();
@@ -529,7 +538,7 @@ public class GUI extends JFrame {
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
                 
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();
             }
         }else if(e.getSource().equals(btnMulti)){
@@ -540,7 +549,7 @@ public class GUI extends JFrame {
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
                 
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();   
             }else if(!caja.getText().equals("") && !memoria1.equals("")){
                 memoria2 = caja.getText();
@@ -549,7 +558,7 @@ public class GUI extends JFrame {
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
                 
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();
             }    
         }else if(e.getSource().equals(btnSuma)){
@@ -560,7 +569,7 @@ public class GUI extends JFrame {
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
                 
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();  
             }else if(!caja.getText().equals("") && !memoria1.equals("")){
                 memoria2 = caja.getText();
@@ -569,7 +578,7 @@ public class GUI extends JFrame {
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
                 
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();
             }    
         }else if(e.getSource().equals(btnResta)){
@@ -580,7 +589,7 @@ public class GUI extends JFrame {
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
                 
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();    
             }else if(!caja.getText().equals("") && !memoria1.equals("")){
                 memoria2 = caja.getText();
@@ -589,7 +598,7 @@ public class GUI extends JFrame {
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
                 
-                caja.setText("");
+                caja.setText("0");
                 caja.requestFocus();
             }else if(caja.getText().equals("")) {
                 memoria1 = "0";
