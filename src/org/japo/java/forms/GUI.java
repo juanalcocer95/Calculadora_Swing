@@ -604,19 +604,21 @@ public class GUI extends JFrame {
         double resultado = 0.0;
         switch (signo) {
             case "-":
-                resultado = Double.parseDouble(memoria1)-Double.parseDouble(memoria2);
-                break;
+                    resultado = Double.parseDouble(memoria1) - Double.parseDouble(memoria2);
+                    break;                
             case "+":
-                resultado = Double.parseDouble(memoria1)+Double.parseDouble(memoria2);
+                resultado = Double.parseDouble(memoria1) + Double.parseDouble(memoria2);
                 break;
             case "*":
-                resultado = Double.parseDouble(memoria1)*Double.parseDouble(memoria2);
+                resultado = BigDecimal.valueOf( //Redondea al alza el octavo decimal
+                            Double.parseDouble(memoria1) * Double.parseDouble(memoria2))
+                            .setScale(8, RoundingMode.CEILING).doubleValue();
                 break;
             case "/":
                 if(Double.parseDouble(memoria2) != 0){
                     
-                    resultado = BigDecimal.valueOf(( //Redondea al alza el octavo decimal cuando sale periodico
-                            Double.parseDouble(memoria1) / Double.parseDouble(memoria2)))
+                    resultado = BigDecimal.valueOf( //Redondea al alza el octavo decimal
+                            Double.parseDouble(memoria1) / Double.parseDouble(memoria2))
                             .setScale(8, RoundingMode.CEILING).doubleValue();
                 }else{
                     return "Error division"; 

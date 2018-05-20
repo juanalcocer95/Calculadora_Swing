@@ -111,14 +111,6 @@ public class UtilesFiltros{
                     Toolkit.getDefaultToolkit().beep();
                 }
         }            
-         private boolean test(String text) {
-            try {
-               Integer.parseInt(text);
-               return true;
-            } catch (NumberFormatException e) {
-               return false;
-            }
-         }
 
         @Override
         public void replace(DocumentFilter.FilterBypass fb, int offset, int length, String text,
@@ -135,6 +127,7 @@ public class UtilesFiltros{
                         super.remove(fb, offset, length);
                         return;
                     }
+                    
                     Double.parseDouble(text);
                     super.replace(fb, offset, length, text, attrs);
                 } catch (NumberFormatException | BadLocationException e) {
