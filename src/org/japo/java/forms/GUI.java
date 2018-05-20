@@ -475,20 +475,19 @@ public class GUI extends JFrame {
         
         //Signos y operaciones
         else if(e.getSource().equals(btnPunto)){
-            memoria1 = caja.getText();
-            if(!memoria1.equals("")){ 
-            caja.setText(caja.getText()+".");
+            if(!caja.getText().equals("")){ 
+            caja.setText(caja.getText() + ".");
             } else{
                 caja.setText("0.");
             }
-            memoria1 = "";
         }
+        
         // Resultado
         else if(e.getSource().equals(btnIgual)){
             String resultado;
-            memoria2 = caja.getText();
-            if(!signo.equals("")){
-                if(!memoria2.equals("")){
+            if(!signo.equals("") && !memoria1.equals("") ){
+                if(!caja.getText().equals("")){
+                    memoria2 = caja.getText();
                     resultado = calculo(memoria1, memoria2, signo);
                     
                     if(resultado.equals("Error division")){
@@ -598,35 +597,42 @@ public class GUI extends JFrame {
                 memoria1 = "0";
                 lblMem.setText(resultadoEnteroODecimal(memoria1));
                 lblSigno.setText(signo);
-        }
+            }
         }
     }
     
     public static String calculo(String memoria1, String memoria2, String signo){
         String respuesta;
         double resultado = 0.0;
+         try {
         switch (signo) {
             case "-":
-                    resultado = Double.parseDouble(memoria1) - Double.parseDouble(memoria2);
-                    break;                
+                resultado = BigDecimal.valueOf( //Redondea al alza el octavo decimal
+                    Double.parseDouble(memoria1) - Double.parseDouble(memoria2))
+                        .setScale(8, RoundingMode.CEILING).doubleValue();
+                break;                
             case "+":
-                resultado = Double.parseDouble(memoria1) + Double.parseDouble(memoria2);
+                resultado = BigDecimal.valueOf( //Redondea al alza el octavo decimal
+                    Double.parseDouble(memoria1) + Double.parseDouble(memoria2))
+                        .setScale(8, RoundingMode.CEILING).doubleValue();
                 break;
             case "*":
                 resultado = BigDecimal.valueOf( //Redondea al alza el octavo decimal
-                            Double.parseDouble(memoria1) * Double.parseDouble(memoria2))
-                            .setScale(8, RoundingMode.CEILING).doubleValue();
+                    Double.parseDouble(memoria1) * Double.parseDouble(memoria2))
+                        .setScale(8, RoundingMode.CEILING).doubleValue();
                 break;
             case "/":
-                if(Double.parseDouble(memoria2) != 0){
-                    
+                if(Double.parseDouble(memoria2) != 0){                   
                     resultado = BigDecimal.valueOf( //Redondea al alza el octavo decimal
-                            Double.parseDouble(memoria1) / Double.parseDouble(memoria2))
+                        Double.parseDouble(memoria1) / Double.parseDouble(memoria2))
                             .setScale(8, RoundingMode.CEILING).doubleValue();
                 }else{
                     return "Error division"; 
                 }
                 break;    
+        }
+         } catch (NumberFormatException e) {
+
         }
         respuesta = resultado + "";
         return respuesta;
@@ -638,10 +644,9 @@ public class GUI extends JFrame {
                     if(Integer.parseInt(arrayResultado[1]) == 0){
                         resultado = arrayResultado[0];
                     }
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
             
         }
-        
         return resultado;
     }
 }
