@@ -41,7 +41,7 @@ public class UtilesFiltros{
             if (test(sb.toString())) {
                super.insertString(fb, offset, string, attr);
             } else {
-               // warn the user and don't allow the insert
+               
             }
          }
 
@@ -84,7 +84,7 @@ public class UtilesFiltros{
                 if (test(sb.toString())) {
                     super.remove(fb, offset, length);
                 } else {
-                    // warn the user and don't allow the insert
+                    
                   }
             }
          }
